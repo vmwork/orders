@@ -67,12 +67,14 @@
             placeholder="Password"
           />
           <span class="red"> {{ formErrors.email }}</span>
+
           <input
             v-model="formDataLogin.confirmPassword"
             class="rounded-2xl px-3 py-4 mt-2"
             type="password"
             placeholder="Confirm Password"
           />
+
           <div class="use-social flex items-center mt-6 ml-1">
             <Switch
               v-model="enabled"
@@ -96,6 +98,7 @@
             @click="register"
           />
         </div>
+        <span class="red text-xs"> {{ error }}</span>
         <UiSocial />
         <div v-if="isLogin" class="fogot-pass flex justify-center mt-6">
           Forgot password ?
@@ -169,7 +172,7 @@ const checkValues = () => {
   }
   return validationResult.success;
 };
-
+const error = ref('');
 const login = async () => {
   console.log(checkValues());
   if (!checkValues()) {
@@ -194,8 +197,8 @@ const login = async () => {
       loadingStore.set(false);
       emit('closeAuth');
     }
-  } catch (e) {
-    console.log(e);
+  } catch (e: any) {
+    error.value = e.message;
   } finally {
     loadingStore.set(false);
   }

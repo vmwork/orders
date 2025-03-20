@@ -1,9 +1,5 @@
 // @import 'colors';
 
-:root {
-  color-scheme: only light;
-}
-
 @font-face {
   font-family: 'Helvetica';
   src: url('./fonts/helveticaRegular.woff2') format('woff2');
@@ -31,4 +27,7 @@ body {
 .container-w {
   max-width: 1024px;
   margin: 0 auto;
+}
+:root {
+  color-scheme: light only !important;
 }
