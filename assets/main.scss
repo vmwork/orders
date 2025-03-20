@@ -14,14 +14,18 @@
   font-style: normal;
 }
 
+html {
+  height: 100%;
+}
 body {
   background-color: $bg-main;
   color: $text-main;
   font-family: Helvetica, sans-serif;
   font-weight: 400;
+  height: 100%;
 
   .main {
-    min-height: 94vh;
+    // min-height: 93.5vh;
   }
 }
 .container-w {
